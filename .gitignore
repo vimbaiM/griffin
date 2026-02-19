@@ -1,0 +1,13 @@
+# General
+.DS_Store
+
+# Project files
+/logs
+/docs
+
+# Environment Variables
+.env
+
+# Python virtual environments
+venv/
+.venv/
