@@ -1,5 +1,4 @@
 # Griffin: Financial Data Q&A Assistant using Graph RAG
-Graph RAG Financial Data Assistant
 
 A financial question-answering system using Retrieval-Augmented Generation (RAG) powered by Langgraph 
 
