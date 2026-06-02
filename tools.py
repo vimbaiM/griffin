@@ -1,7 +1,9 @@
 """
 Tools for RAG pipeline
 """
-from langchain_community.tools import tool
+from langchain_community.tools import DuckDuckGoSearchRun, tool
+
+from vectorstore import retriever
 
 
 @tool
@@ -20,11 +22,13 @@ def fetch_chart_data():
     raise NotImplementedError
 
 @tool
-def search_knowledge_base():
+def retrieve_educational_content(query: str) -> str:
     """Search chroma"""
-    raise NotImplementedError
+    docs = retriever.invoke(query)
+    return "\n\n".join([doc.page_content for doc in docs])
 
-@tool
-def web_search():
-    """Use DuckDuckGo for web search"""
-    raise NotImplementedError
+
+def web_search(query):
+    """Use DuckDuckGo for web search. Verify implementation"""
+    search = DuckDuckGoSearchRun()
+    return search.run(query)
